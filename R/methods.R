@@ -122,7 +122,9 @@ preCheck = function(las){
 sizeCheck = function(las, n_new_fields, bytes=8){
   n = nrow(las@data)
   mem = sum(gc(full=TRUE)[,2])
-  ram = as.double(get_ram()) / 1000000
+  ram = as.numeric(gsub("\r","",gsub("FreePhysicalMemory=","",
+                                     system('wmic OS get FreePhysicalMemory /Value',
+                                            intern=TRUE)[3])))/1024 # kilobytes (KB)
   malloc = n * n_new_fields * bytes / 1000000
   can_malloc = ram - mem - malloc
   if(can_malloc < 0){
