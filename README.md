@@ -48,7 +48,7 @@ For any questions, comments or bug reports please submit an [issue](https://gith
 
 On the R console, run:
 ```
-remotes::install_github('tiagodc/TreeLS')
+remotes::install_github('bi0m3trics/TreeLS')
 ```
 
 ## Usage
